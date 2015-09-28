@@ -1,0 +1,27 @@
+mixin item(item)
+  .porLst
+    a(href="#{item.linkUrl}")
+      .listImgBig
+        img(src="#{item.imageUrl}")
+      .listInfo
+        p.listTxt #{item.title}
+        p.listPrice
+          span.py #{item.price}
+
+mixin image_link(il)
+  .porLst
+    a(href="#{il.linkUrl}")
+      .listImgBig
+        img(src="#{il.imageUrl}")
+      .listInfo
+        p.listTxt
+          b
+          | #{il.title}
+
+mixin image_link_without_b(il)
+  .porLst
+    a(href="#{il.linkUrl}")
+      .listImgBig
+        img(src="#{il.imageUrl}")
+      .listInfo
+        p.listTxt #{il.title}

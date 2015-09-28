@@ -1,0 +1,68 @@
+extends ../layouts/ims
+include ../mixins/item
+
+block content
+  div(ata-ride="carousel", id="carousel-example-generic" class="carousel slide")
+    ol.carousel-indicators
+      li(data-target="#carousel-example-generic" data-slide-to="0" class="")
+      li(class="active" data-target="#carousel-example-generic" data-slide-to="1")
+    div(class="carousel-inner" role="listbox")
+      each image,idx in data.homepage.carousel
+        if idx == 0
+          .item.active
+            a(href="#{image.linkUrl}")
+              img(src="#{image.imageUrl}")
+        else
+          .item
+            a(href="#{image.linkUrl}")
+              img(src="#{image.imageUrl}")
+    a(class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev")
+      span.sr-only Previous
+    a(class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next")
+      span.sr-only Next
+  .miniWrap
+    .banBox
+      .lhot
+        a(href="#{data.homepage.ads[0].linkUrl}")
+          img(src="#{data.homepage.ads[0].imageUrl}")
+      .rBox
+        .tImgs
+          a(href="#{data.homepage.ads[1].linkUrl}")
+            img(src="#{data.homepage.ads[1].imageUrl}")
+        .bImgs.cf
+          .bImg
+            a(href="#{data.homepage.ads[2].linkUrl}")
+              img(src="#{data.homepage.ads[2].imageUrl}")
+          .bImg
+            a(href="#{data.homepage.ads[3].linkUrl}")
+              img(src="#{data.homepage.ads[3].imageUrl}")
+    .banBox
+      .buImg
+        a(href="#{data.homepage.ads[4].linkUrl}")
+          img(src="#{data.homepage.ads[4].imageUrl}")
+      .buImg
+        a(href="#{data.homepage.ads[5].linkUrl}")
+          img(src="#{data.homepage.ads[5].imageUrl}")
+  .miniWrap
+    .floorTitle
+      p 热门店铺
+    .hotContent.cf
+      +image_link(data.homepage.stores[0])
+      +image_link(data.homepage.stores[1])
+  .miniWrap
+    .floorTitle
+      p 新品上市
+    .hotContent.cf
+      +image_link_without_b(data.homepage.items[0])
+      +image_link_without_b(data.homepage.items[1])
+      +image_link_without_b(data.homepage.items[2])
+      +image_link_without_b(data.homepage.items[3])
+  .miniWrap
+    .bottomMore
+      a(href="http://i.intime.com.cn/ims/combos")
+        p 更多商品
+block js
+  script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+  script(src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js")
+  script
+    $("#carousel-example-generic").carousel({ interval: 6000 });

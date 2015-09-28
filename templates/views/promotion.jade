@@ -1,0 +1,14 @@
+extends ../layouts/ims
+include ../mixins/item
+
+block content
+  .carousel
+    img(src="#{data.promotion.imageUrl}")
+  .miniWrap
+    .hotContent.cf
+      each d in data.promotion.items
+        +item(d)
+
+block js
+  script(src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+  script(src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js")
