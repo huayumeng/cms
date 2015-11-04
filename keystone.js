@@ -24,14 +24,15 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-	'mongo': 'mongodb://120.26.69.245/cms',
+	'mongo': 'mongodb://localhost/cms',
 	'emails': 'templates/emails',
-
+	'cloudinary config': 'wallace8086://861979697617778:ugF0FAzTLr9mwknLqs6kePO69a8@wallace8086',
 	'auto update': true,
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'wysiwyg images': true
+	'wysiwyg images': true,
+	'cookie secret': 'intime@123'
 
 });
 
@@ -49,6 +50,8 @@ keystone.set('locals', {
 	utils: keystone.utils,
 	editable: keystone.content.editable
 });
+
+//keystone.set('cloudinary config','wallace8086://861979697617778:ugF0FAzTLr9mwknLqs6kePO69a8@cms');
 
 // Load your project's Routes
 

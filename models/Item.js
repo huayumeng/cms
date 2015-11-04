@@ -15,8 +15,9 @@ var Types = keystone.Field.Types;
  	imageUrl: { type: Types.Url, initial: true, label: '图片地址', required: true },
   linkUrl: { type: Types.Url, initial: true, label: '购买链接', required: true },
  	price: { type: Types.Money, initial: true, label:'现价', currency: 'chs', required: true },
-  unitPrice: { type: Types.Money, label: '原价', initial: true, currency: 'chs'  }
- });
+  unitPrice: { type: Types.Money, label: '原价', initial: true, currency: 'chs'  },
+  createdUser: {type: Types.Relationship, ref: "User" , label: '作者'}}
+ );
 
  Item.defaultColumns = 'title, imageUrl, linkUrl, price, unitPrice';
  Item.register();
